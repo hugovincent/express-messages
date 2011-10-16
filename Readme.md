@@ -2,7 +2,8 @@
       
 The _express-messages_ module provides flash notification rendering. To use simply assign it to a dynamic helper:
 
-    app.dynamicHelpers({ messages: require('express-messages') });
+    msgs = require('express-messages')({'messages_class': 'alert-message', 'close_buttons': true});
+    app.dynamicHelpers({ messages: msgs});
 
 ## Installation
 
@@ -22,14 +23,19 @@ Then in a view you may output the notifications based on your templating engine:
 
 Which outputs HTML as shown below:
 
-    <div id="messages">
-      <ul class="info">
-        <li>Email queued</li>
-        <li>Email sent</li>
-      </ul>
-      <ul class="error">
-        <li>Email delivery failed</li>
-      </ul>
+    <div id="express-messages">
+      <div class="alert-message info">
+        <a class="close">×</a>
+        <p>Email queued</p>
+      </div>
+      <div class="alert-message info">
+        <a class="close">×</a>
+        <p>Email sent</p>
+      </div>
+      <div class="alert-message error">
+        <a class="close">×</a>
+        <p>Email delivery failed</p>
+      </div>
     </div>
 
 ## Running Tests
@@ -47,6 +53,8 @@ Then run the tests:
 (The MIT License)
 
 Copyright (c) 2010 TJ Holowaychuk &lt;tj@vision-media.ca&gt;
+
+Copyright (c) 2011 Hugo Vincent &lt;hugo.vincent@gmail.com&gt;
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
