@@ -21,17 +21,17 @@ module.exports = function(options){
             , msgs = messages[type];
           if (msgs) {
             for (var j = 0, l = msgs.length; j < l; ++j) {
-              buf.push('  <div class="' + options['messages_class'] + ' ' + type + '">');
+              buf.push('<div class="' + options['messages_class'] + ' ' + type + '">');
               if (options['close_buttons'] === true) {
-                buf.push('    <a class="close">×</a>');
+                buf.push('<a class="close">×</a>');
               }
-              buf.push('    <p>' + msgs[j] + '</p>');
-              buf.push('  </div>');
+              buf.push('<p>' + msgs[j] + '</p>');
+              buf.push('</div>');
             }
           }
         }
       buf.push('</div>');
-      return buf.join('\n');
+      return buf.join('');
     }
   };
 }
